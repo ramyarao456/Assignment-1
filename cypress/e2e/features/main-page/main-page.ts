@@ -7,19 +7,19 @@ When("I visit the Main Page",()=>{
 });
 
 Then("I should see {string} on Main Page",()=>{
-cy.get(".tooltip h2").should("be.visible");
+    cy.get(".tooltip h2").should("be.visible");
 });
 
 Then("I should see {string} label",(label:string)=>{
-cy.get("section h2").eq(1).should("be.visible").should("have.text",label);
+    cy.get("section h2").eq(1).should("be.visible").should("have.text",label);
 });
 
 When("I click on Offline-Multiplayer I should be on the game page",()=>{
-cy.get("a img").eq(1).click();
+    cy.get("a img").eq(1).click();
 });
 
 Then("the first move should always be {string}",()=>{
-cy.get(".cell").eq(2).click().should("be.visible");
+    cy.get(".cell").eq(2).click().should("be.visible");
 });
     
 Then("I should be able to click {string} after the first move",()=>{
@@ -37,22 +37,18 @@ Then("Check that both X and O are visible in the UI once they are marked on the 
     cy.get(".cell").eq(0).click().should("be.visible");
 });
 
-Then("I should see {string} button when the game is over",()=>{
-    cy.get("#restartButton").click()
-});
-
-Then("The first game where the game is tied and I should see {string} Button when the game is over",()=>{
-    cy.get(".cell").eq(0).click()
-    .get(".cell").eq(1).click()
-    .get(".cell").eq(2).click()
-    .get(".cell").eq(7).click()
-    .get(".cell").eq(6).click()
+Then("I should see the first game should be tied and I should see {string} Button when the game is over",()=>{
+    cy.get(".cell").eq(2).click()
     .get(".cell").eq(3).click()
-    .get(".cell").eq(5).click()
+    .get(".cell").eq(4).click()
+    .get(".cell").eq(6).click()
+    .get(".cell").eq(0).click()
     .get(".cell").eq(8).click()
-    .get("#restartButton").click()
+    .get(".cell").eq(7).click()
+    .get(".cell").eq(1).click()
+    .get(".cell").eq(5).click()
+    .get("#restartButton").should("be.visible")
 });
-
 
 
 Then("The second game where X wins and I should see {string} Button when the game is over",()=>{
@@ -64,18 +60,22 @@ Then("The second game where X wins and I should see {string} Button when the gam
     .get(".cell").eq(3).click()
     .get(".cell").eq(5).click()
     .get(".cell").eq(6).click()
-    .get("#restartButton").click()
+    .get(".cell").eq(2).click()
+    .get("#restartButton").should("be.visible")
 });
 
 
 Then("The third game where O wins and I should see {string} Button when the game is over",()=>{
-    cy.get(".cell").eq(0).click()
-    .get(".cell").eq(1).click()
-    .get(".cell").eq(8).click()
-    .get(".cell").eq(4).click()
+    cy.get(".cell").eq(1).click()
     .get(".cell").eq(7).click()
-    .get("#restartButton").click()
-});
+    .get(".cell").eq(4).click()
+    .get(".cell").eq(6).click()
+    .get(".cell").eq(8).click()
+    .get(".cell").eq(3).click()
+    .get(".cell").eq(5).click()
+    .get(".cell").eq(0).click()
+    .get("#restartButton").should("be.visible").click()
+ });
 
 
 
