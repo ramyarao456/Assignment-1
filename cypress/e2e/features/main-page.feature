@@ -2,32 +2,32 @@ Feature: Main Page
 
 Scenario: Verify the display of two modes on Main Page
     When I visit the Main Page
-    Then I should see 'Play with Computer' on Main Page
+    Then I should see Play with Computer on Main Page
     Then  I should see 'Offline-Multiplayer' label
     When I click on Offline-Multiplayer I should be on the game page
 
 Scenario: Verify the rules of the game
     When I visit the Main Page
     Then I click on Offline-Multiplayer I should be on the game page
-    Then the first move should always be 'X'
-    Then I should be able to click 'O' after the first move 
+    Then the first move should always be X
+    Then I should be able to click O after the first move 
     Then Test that one should not be able to click on an already marked cell again
     Then Check that both X and O are visible in the UI once they are marked on the table
     
 Scenario: Verify whether the First Game is tied 
+    Then I should see the first game should be tied
+            
+Scenario: Verify whether the Second Game is won by X
+    Then I should see the second game where X wins
+
+Scenario: Verify whether the Third Game is won by O
+    Then I should see the Third game where O wins
+    Then I should see the Restart button when the game is over
+
+Scenario: Verify the display of Play of Computer mode 
     When I visit the Main Page
-    Then I click on Offline-Multiplayer I should be on the game page
-    Then I should see the first game should be tied and I should see 'Restart' Button when the game is over
-        
-Scenario: Verify whether X wins in the Second Game
-    When I visit the Main Page
-    Then I click on Offline-Multiplayer I should be on the game page
-    Then The second game where X wins and I should see 'Restart' Button when the game is over
-    
-Scenario: Verify whether O wins in the Third Game
-    When I visit the Main Page
-    Then I click on Offline-Multiplayer I should be on the game page
-    Then The third game where O wins and I should see 'Restart' Button when the game is over
+    When I click on Play of Computer mode I should go to game page
+    Then I play the game where the match is a draw
 
 
     
